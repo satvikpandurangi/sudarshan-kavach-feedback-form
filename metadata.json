@@ -1,0 +1,10 @@
+{
+  "name": "Remix Sudarshan Kavach - Hackathon Feedback Portal",
+  "description": "Official exhibition feedback and visitor evaluation portal for Sudarshan Kavach developed by Team Hayagreeva (Mentor: A K Anand, Prateek Deshpande, Adithi D S, K Aasritha Vardhan, Satvik Pandurangi).",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

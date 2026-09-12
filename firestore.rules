@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isSuperAdmin() {
+      return isSignedIn() &&
+        (request.auth.token.email == 'satvikpandurangi07@gmail.com' ||
+         request.auth.token.email_verified == true && request.auth.token.email == 'satvikpandurangi07@gmail.com');
+    }
+
+    // Feedback Submissions:
+    // Anyone (judges, attendees scanning QR code) can create a feedback submission.
+    // Reading evaluations is accessible for reporting, or managed by administrators.
+    match /feedback_submissions/{submissionId} {
+      allow read: if true;
+      allow create: if request.resource.data.judgeName is string &&
+                       request.resource.data.judgeName.size() > 0 &&
+                       request.resource.data.totalScore is number;
+      allow update, delete: if isSuperAdmin();
+    }
+
+    // App Settings (such as Google Sheets linking):
+    // Readable by the app, updateable by authenticated admins.
+    match /app_settings/{settingId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+
+    // Test connection doc
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+  }
+}

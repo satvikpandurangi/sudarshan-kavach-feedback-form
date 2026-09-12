@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  --brand-orange: #f97316;
+  --brand-orange-light: #fff7ed;
+  --brand-orange-subtle: #ffedd5;
+  --brand-orange-mid: #fb923c;
+  --brand-orange-dark: #ea580c;
+  --brand-orange-deep: #c2410c;
+  --brand-gradient: linear-gradient(135deg, #fb923c, #ea580c);
+  --brand-gradient-hover: linear-gradient(135deg, #f97316, #c2410c);
+  --brand-orange-glow: rgba(249, 115, 22, 0.25);
+
+  --bg-canvas: #fbfbf9;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-subtle: #f4f4f5;
+  --bg-secondary: #f8fafc;
+  --bg-charcoal: #090d16;
+  --bg-charcoal-card: #0f172a;
+
+  --border-subtle: rgba(226, 232, 240, 0.85);
+  --border-mid: #cbd5e1;
+  --border-focus: #f97316;
+
+  --text-primary: #090d16;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes chakraSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-chakra {
+  animation: chakraSpin 26s linear infinite;
+}
+
+.animate-chakra-fast {
+  animation: chakraSpin 10s linear infinite;
+}
+
+/* Official Google Sign-In Button Styling per Google Guidelines */
+.gsi-material-button {
+  background-color: #ffffff;
+  border: 1px solid #747775;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #1f1f1f;
+  cursor: pointer;
+  font-family: 'Roboto', arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  letter-spacing: 0.25px;
+  outline: none;
+  overflow: hidden;
+  padding: 0 16px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: background-color 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.gsi-material-button:hover {
+  background-color: #f8fafd;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  border-color: #dadce0;
+}
+
+.gsi-material-button:active {
+  background-color: #f1f3f4;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3);
+}
+
+.gsi-material-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.gsi-material-button-icon {
+  height: 20px;
+  min-width: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

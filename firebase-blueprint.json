@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "FeedbackSubmission": {
+      "title": "FeedbackSubmission",
+      "description": "Evaluation and feedback submitted by judges and attendees for Sudarshan Kavach",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "judgeName": { "type": "string" },
+        "judgeEmail": { "type": "string" },
+        "organization": { "type": "string" },
+        "role": { "type": "string" },
+        "domainKnowledge": { "type": "string" },
+        "scores": {
+          "type": "object",
+          "properties": {
+            "innovation": { "type": "number" },
+            "technicalFeasibility": { "type": "number" },
+            "impactDefenseReadiness": { "type": "number" },
+            "userExperience": { "type": "number" },
+            "presentationQuality": { "type": "number" }
+          },
+          "required": [
+            "innovation",
+            "technicalFeasibility",
+            "impactDefenseReadiness",
+            "userExperience",
+            "presentationQuality"
+          ]
+        },
+        "totalScore": { "type": "number" },
+        "averageRating": { "type": "number" },
+        "keyStrengths": { "type": "string" },
+        "areasForImprovement": { "type": "string" },
+        "recommendation": { "type": "string" },
+        "submittedAt": { "type": "string" },
+        "submissionSource": { "type": "string" },
+        "syncedToGoogleSheets": { "type": "boolean" }
+      },
+      "required": ["id", "judgeName", "totalScore", "submittedAt"]
+    },
+    "AppConfig": {
+      "title": "AppConfig",
+      "description": "Global configuration and sync state for Google Sheets and administrators",
+      "type": "object",
+      "properties": {
+        "spreadsheetId": { "type": "string" },
+        "spreadsheetUrl": { "type": "string" },
+        "sheetTitle": { "type": "string" },
+        "lastSyncedAt": { "type": "string" },
+        "sharedWith": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["spreadsheetId", "spreadsheetUrl"]
+    }
+  },
+  "firestore": {
+    "/feedback_submissions/{submissionId}": {
+      "schema": "FeedbackSubmission",
+      "description": "Individual evaluation and feedback record submitted via QR code or direct entry."
+    },
+    "/app_settings/{settingId}": {
+      "schema": "AppConfig",
+      "description": "System settings such as linked spreadsheet references and authorized team members."
+    }
+  }
+}
