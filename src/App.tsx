@@ -303,101 +303,108 @@ export default function App() {
         isLoading={isGoogleLoading}
       />
 
-      {/* 6. Professional Footer with Team Hayagreeva Credentials (Equal styling for all members) */}
-      <footer className="w-full bg-[#090d16] text-slate-400 text-xs border-t border-slate-800 mt-12 py-10 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-slate-800/80">
-            {/* Column 1: Branding */}
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <img
-                  src="/sudarshan-shield-emblem.png"
-                  alt="Sudarshan Kavach Logo"
-                  className="w-8 h-8 object-contain"
-                />
-                <span className="text-white font-extrabold text-sm tracking-wide">
-                  SUDARSHAN KAVACH
-                </span>
+      {/* 6. Professional Footer with Team Hayagreeva Credentials (Shown on form view; kiosk display has integrated branding) */}
+      {activeTab !== 'qr' ? (
+        <footer className="w-full bg-[#090d16] text-slate-400 text-xs border-t border-slate-800 mt-12 py-10 px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-slate-800/80">
+              {/* Column 1: Branding */}
+              <div>
+                <div className="flex items-center gap-3 mb-3">
+                  <img
+                    src="/sudarshan-shield-emblem.png"
+                    alt="Sudarshan Kavach Logo"
+                    className="w-8 h-8 object-contain"
+                  />
+                  <span className="text-white font-extrabold text-sm tracking-wide">
+                    SUDARSHAN KAVACH
+                  </span>
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed mb-3">
+                  AI-Powered Digital Safety Co-Pilot. Protecting citizens against phishing, UPI traps, APK malware, and financial cyber crime.
+                </p>
+                <div className="text-[11px] text-orange-400 font-semibold">
+                  🔱 Sacred Invocation of the Sudarshan Chakra for Total Defense
+                </div>
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed mb-3">
-                AI-Powered Digital Safety Co-Pilot. Protecting citizens against phishing, UPI traps, APK malware, and financial cyber crime.
-              </p>
-              <div className="text-[11px] text-orange-400 font-semibold">
-                🔱 Sacred Invocation of the Sudarshan Chakra for Total Defense
+
+              {/* Column 2: Exact Team Hayagreeva Roster - No individual highlight */}
+              <div>
+                <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-2">
+                  Developed by Team Hayagreeva
+                </h4>
+                <p className="text-amber-300 font-semibold text-xs mb-2">
+                  Mentor: A K Anand
+                </p>
+                <ul className="space-y-1.5 text-xs text-slate-300">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                    <span>Prateek Deshpande</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                    <span>Adithi D S</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                    <span>K Aasritha Vardhan</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                    <span>Satvik Pandurangi</span>
+                  </li>
+                </ul>
+                <div className="mt-3">
+                  <a
+                    href="https://sudarshan-kavach.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-orange-400 hover:text-orange-300 font-medium text-xs underline underline-offset-2"
+                  >
+                    Visit Sudarshan Kavach Live Application
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Column 3: Exhibition Information & Discreet Admin Lock */}
+              <div>
+                <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-3">
+                  Exhibition Booth Station
+                </h4>
+                <p className="text-xs text-slate-400 leading-relaxed mb-3">
+                  Welcome to our interactive booth station. Scan the QR code with your phone camera to submit instant evaluations and feedback.
+                </p>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setIsAdminModalOpen(true)}
+                    id="footer-btn-admin-panel"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-500 hover:text-slate-300 font-medium text-xs border border-slate-800 transition-colors cursor-pointer"
+                    title="Team Administrator Area"
+                  >
+                    <Lock className="w-3 h-3 text-slate-500" />
+                    <span>Team Admin</span>
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Column 2: Exact Team Hayagreeva Roster - No individual highlight */}
-            <div>
-              <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-2">
-                Developed by Team Hayagreeva
-              </h4>
-              <p className="text-amber-300 font-semibold text-xs mb-2">
-                Mentor: A K Anand
-              </p>
-              <ul className="space-y-1.5 text-xs text-slate-300">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-                  <span>Prateek Deshpande</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-                  <span>Adithi D S</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-                  <span>K Aasritha Vardhan</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-                  <span>Satvik Pandurangi</span>
-                </li>
-              </ul>
-              <div className="mt-3">
-                <a
-                  href="https://sudarshan-kavach.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-orange-400 hover:text-orange-300 font-medium text-xs underline underline-offset-2"
-                >
-                  Visit Sudarshan Kavach Live Application
-                  <ExternalLink className="w-3 h-3" />
-                </a>
+            <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+              <div>
+                © 2026 Sudarshan Kavach AI • Team Hayagreeva • All Rights Reserved
               </div>
-            </div>
-
-            {/* Column 3: Exhibition Information & Discreet Admin Lock */}
-            <div>
-              <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-3">
-                Exhibition Booth Station
-              </h4>
-              <p className="text-xs text-slate-400 leading-relaxed mb-3">
-                Welcome to our interactive booth station. Scan the QR code with your phone camera to submit instant evaluations and feedback.
-              </p>
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => setIsAdminModalOpen(true)}
-                  id="footer-btn-admin-panel"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-500 hover:text-slate-300 font-medium text-xs border border-slate-800 transition-colors cursor-pointer"
-                  title="Team Administrator Area"
-                >
-                  <Lock className="w-3 h-3 text-slate-500" />
-                  <span>Team Admin</span>
-                </button>
+              <div className="flex items-center gap-1 text-slate-400">
+                <span>Empowering Digital India with AI-Driven Cyber Defense</span>
               </div>
             </div>
           </div>
-
-          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
-            <div>
-              © 2026 Sudarshan Kavach AI • Team Hayagreeva • All Rights Reserved
-            </div>
-            <div className="flex items-center gap-1 text-slate-400">
-              <span>Empowering Digital India with AI-Driven Cyber Defense</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+        </footer>
+      ) : (
+        /* Discreet minimalist footer for tablet kiosk mode */
+        <footer className="w-full py-2 px-4 text-center text-[11px] text-slate-500 border-t border-slate-200/60 bg-white/50">
+          <span>© 2026 Sudarshan Kavach • Team Hayagreeva • Exhibition Visitor Station</span>
+        </footer>
+      )}
     </div>
   );
 }
